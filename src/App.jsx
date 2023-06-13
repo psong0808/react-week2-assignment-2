@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Todos from './Todos';
+import Page from './Page';
 
 export default function App() {
   const [todo, setTodo] = useState([]);
@@ -19,11 +19,12 @@ export default function App() {
   }
 
   return (
-    <>
-      <h1>To-do</h1>
-      <input type="text" value={inputValue} onChange={handleInputChange} style={{ marginRight: '10px' }} />
-      <button type="button" onClick={onClickAdd}>추가</button>
-      <Todos todoList={todo} onClick={onClickDone} />
-    </>
+    <Page
+      inputValue={inputValue}
+      onClickAdd={onClickAdd}
+      handleInputChange={handleInputChange}
+      todo={todo}
+      onClickDone={onClickDone}
+    />
   );
 }
